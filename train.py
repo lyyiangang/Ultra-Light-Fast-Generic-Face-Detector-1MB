@@ -6,7 +6,7 @@ import itertools
 import logging
 import os
 import sys
-
+import ipdb
 import torch
 from torch import nn
 from torch.optim.lr_scheduler import CosineAnnealingLR, MultiStepLR
@@ -16,6 +16,7 @@ from vision.datasets.voc_dataset import VOCDataset
 from vision.nn.multibox_loss import MultiboxLoss
 from vision.ssd.config.fd_config import define_img_size
 from vision.utils.misc import str2bool, Timer, freeze_net_layers, store_labels
+import vision.utils.crash
 
 parser = argparse.ArgumentParser(
     description='train With Pytorch')
@@ -148,7 +149,6 @@ def train(loader, net, criterion, optimizer, device, debug_steps=100, epoch=-1):
         loss = regression_loss + classification_loss
         loss.backward()
         optimizer.step()
-
         running_loss += loss.item()
         running_regression_loss += regression_loss.item()
         running_classification_loss += classification_loss.item()
@@ -186,6 +186,8 @@ def test(loader, net, criterion, device):
             confidence, locations = net(images)
             regression_loss, classification_loss = criterion(confidence, locations, labels, boxes)
             loss = regression_loss + classification_loss
+            # if loss.item() == float('nan'):
+            #     ipdb.set_trace()
 
         running_loss += loss.item()
         running_regression_loss += regression_loss.item()
@@ -248,7 +250,7 @@ if __name__ == '__main__':
     net = create_net(num_classes)
 
     # add multigpu_train
-    if torch.cuda.device_count() >= 1:
+    if torch.cuda.device_count() > 1:
         cuda_index_list = [int(v.strip()) for v in args.cuda_index.split(",")]
         net = nn.DataParallel(net, device_ids=cuda_index_list)
         logging.info("use gpu :{}".format(cuda_index_list))
@@ -281,14 +283,14 @@ if __name__ == '__main__':
         logging.info("Freeze all the layers except prediction heads.")
     else:
         params = [
-            {'params': net.module.base_net.parameters(), 'lr': base_net_lr},
+            {'params': net.base_net.parameters(), 'lr': base_net_lr},
             {'params': itertools.chain(
-                net.module.source_layer_add_ons.parameters(),
-                net.module.extras.parameters()
+                net.source_layer_add_ons.parameters(),
+                net.extras.parameters()
             ), 'lr': extra_layers_lr},
             {'params': itertools.chain(
-                net.module.regression_headers.parameters(),
-                net.module.classification_headers.parameters()
+                net.regression_headers.parameters(),
+                net.classification_headers.parameters()
             )}
         ]
 
@@ -358,5 +360,5 @@ if __name__ == '__main__':
                 f"Validation Classification Loss: {val_classification_loss:.4f}"
             )
             model_path = os.path.join(args.checkpoint_folder, f"{args.net}-Epoch-{epoch}-Loss-{val_loss}.pth")
-            net.module.save(model_path)
+            net.save(model_path)
             logging.info(f"Saved model {model_path}")

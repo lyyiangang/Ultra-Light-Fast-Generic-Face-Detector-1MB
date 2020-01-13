@@ -1,0 +1,211 @@
+2020-01-13 09:49:38,090 - root - INFO - inpu size :128
+priors nums:708
+2020-01-13 09:49:38,132 - root - INFO - Namespace(balance_data=False, base_net=None, base_net_lr=None, batch_size=65, checkpoint_folder='./models/train-time-plate', cuda_index='0', dataset_type='voc', datasets=['../../Dataset/VOC'], debug_steps=100, extra_layers_lr=None, freeze_base_net=False, freeze_net=False, gamma=0.1, input_size=128, iou_threshold=0.34999999404, log_dir='./models/train-time-plate/logs', lr=0.01, milestones='50,150', momentum=0.9, net='slim', num_epochs=100, num_workers=5, optimizer_type='SGD', overlap_threshold=0.34999999404, power=2, pretrained_ssd=None, resume='./models/train-time-plate/slim-Epoch-0-Loss-0.3717567132365319.pth', scheduler='multi-step', t_max=120, use_cuda=True, validation_dataset='../../Dataset/VOC', validation_epochs=1, weight_decay=0.0005)
+2020-01-13 09:49:38,133 - root - INFO - Prepare training datasets.
+2020-01-13 09:49:38,135 - root - INFO - VOC Labels read from file: ('BACKGROUND', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ':', '.')
+2020-01-13 09:49:38,135 - root - INFO - class_name dict:{'BACKGROUND': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '0': 10, ':': 11, '.': 12}
+2020-01-13 09:49:38,136 - root - INFO - Stored labels into file ./models/train-time-plate/voc-model-labels.txt.
+2020-01-13 09:49:38,136 - root - INFO - Train dataset size: 8000
+2020-01-13 09:49:38,136 - root - INFO - Prepare Validation datasets.
+2020-01-13 09:49:38,136 - root - INFO - VOC Labels read from file: ('BACKGROUND', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ':', '.')
+2020-01-13 09:49:38,136 - root - INFO - class_name dict:{'BACKGROUND': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '0': 10, ':': 11, '.': 12}
+2020-01-13 09:49:38,136 - root - INFO - validation dataset size: 2000
+2020-01-13 09:49:38,137 - root - INFO - Build network.
+2020-01-13 09:49:38,150 - root - INFO - Resume from the model ./models/train-time-plate/slim-Epoch-0-Loss-0.3717567132365319.pth
+2020-01-13 09:49:38,161 - root - INFO - Took 0.01 seconds to load the model.
+2020-01-13 09:49:38,163 - root - INFO - Learning rate: 0.01, Base net learning rate: 0.01, Extra Layers learning rate: 0.01.
+2020-01-13 09:49:38,163 - root - INFO - Uses MultiStepLR scheduler.
+2020-01-13 09:49:38,163 - root - INFO - Start training from epoch 0.
+......................................................................................................
+2020-01-13 09:50:59,377 - root - INFO - Epoch: 0, Step: 100, Average Loss: 0.2101, Average Regression Loss 0.0398, Average Classification Loss: 0.1703
+.......................2020-01-13 09:51:15,094 - root - INFO - lr rate :0.01
+2020-01-13 09:51:15,094 - root - INFO - lr rate :0.01
+2020-01-13 09:51:22,971 - root - INFO - Epoch: 0, Validation Loss: 0.0668, Validation Regression Loss 0.0203, Validation Classification Loss: 0.0465
+2020-01-13 09:51:22,979 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-0-Loss-0.06679504496916648.pth
+......................................................................................................
+2020-01-13 09:52:38,809 - root - INFO - Epoch: 1, Step: 100, Average Loss: 0.0577, Average Regression Loss 0.0170, Average Classification Loss: 0.0407
+.......................2020-01-13 09:52:51,999 - root - INFO - lr rate :0.01
+2020-01-13 09:52:52,000 - root - INFO - lr rate :0.01
+2020-01-13 09:52:59,095 - root - INFO - Epoch: 1, Validation Loss: 0.0289, Validation Regression Loss 0.0112, Validation Classification Loss: 0.0177
+2020-01-13 09:52:59,102 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-1-Loss-0.0288598490578513.pth
+......................................................................................................
+2020-01-13 09:54:16,552 - root - INFO - Epoch: 2, Step: 100, Average Loss: 0.0331, Average Regression Loss 0.0117, Average Classification Loss: 0.0214
+.......................2020-01-13 09:54:32,676 - root - INFO - lr rate :0.01
+2020-01-13 09:54:32,677 - root - INFO - lr rate :0.01
+2020-01-13 09:54:39,746 - root - INFO - Epoch: 2, Validation Loss: 0.0186, Validation Regression Loss 0.0078, Validation Classification Loss: 0.0108
+2020-01-13 09:54:39,760 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-2-Loss-0.018603101072292173.pth
+......................................................................................................
+2020-01-13 09:55:56,583 - root - INFO - Epoch: 3, Step: 100, Average Loss: 0.0225, Average Regression Loss 0.0087, Average Classification Loss: 0.0137
+.......................2020-01-13 09:56:12,476 - root - INFO - lr rate :0.01
+2020-01-13 09:56:12,476 - root - INFO - lr rate :0.01
+2020-01-13 09:56:21,975 - root - INFO - Epoch: 3, Validation Loss: 0.0159, Validation Regression Loss 0.0077, Validation Classification Loss: 0.0082
+2020-01-13 09:56:21,983 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-3-Loss-0.01593091618269682.pth
+......................................................................................................
+2020-01-13 09:57:37,809 - root - INFO - Epoch: 4, Step: 100, Average Loss: 0.0172, Average Regression Loss 0.0070, Average Classification Loss: 0.0102
+.......................2020-01-13 09:57:51,702 - root - INFO - lr rate :0.01
+2020-01-13 09:57:51,702 - root - INFO - lr rate :0.01
+2020-01-13 09:57:58,727 - root - INFO - Epoch: 4, Validation Loss: 0.0150, Validation Regression Loss 0.0068, Validation Classification Loss: 0.0082
+2020-01-13 09:57:58,733 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-4-Loss-0.015027620409044528.pth
+......................................................................................................
+2020-01-13 09:59:15,773 - root - INFO - Epoch: 5, Step: 100, Average Loss: 0.0170, Average Regression Loss 0.0066, Average Classification Loss: 0.0104
+.......................2020-01-13 09:59:33,417 - root - INFO - lr rate :0.01
+2020-01-13 09:59:33,417 - root - INFO - lr rate :0.01
+2020-01-13 09:59:41,854 - root - INFO - Epoch: 5, Validation Loss: 0.0104, Validation Regression Loss 0.0050, Validation Classification Loss: 0.0053
+2020-01-13 09:59:41,863 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-5-Loss-0.010372706508684543.pth
+......................................................................................................
+2020-01-13 10:01:01,467 - root - INFO - Epoch: 6, Step: 100, Average Loss: 0.0122, Average Regression Loss 0.0052, Average Classification Loss: 0.0070
+.......................2020-01-13 10:01:14,484 - root - INFO - lr rate :0.01
+2020-01-13 10:01:14,484 - root - INFO - lr rate :0.01
+2020-01-13 10:01:21,430 - root - INFO - Epoch: 6, Validation Loss: 0.0092, Validation Regression Loss 0.0045, Validation Classification Loss: 0.0048
+2020-01-13 10:01:21,438 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-6-Loss-0.009230961632584371.pth
+......................................................................................................
+2020-01-13 10:02:41,426 - root - INFO - Epoch: 7, Step: 100, Average Loss: 0.0110, Average Regression Loss 0.0047, Average Classification Loss: 0.0063
+.......................2020-01-13 10:02:56,470 - root - INFO - lr rate :0.01
+2020-01-13 10:02:56,470 - root - INFO - lr rate :0.01
+2020-01-13 10:03:03,126 - root - INFO - Epoch: 7, Validation Loss: 0.0077, Validation Regression Loss 0.0032, Validation Classification Loss: 0.0044
+2020-01-13 10:03:03,131 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-7-Loss-0.00765695413875003.pth
+......................................................................................................
+2020-01-13 10:04:19,756 - root - INFO - Epoch: 8, Step: 100, Average Loss: 0.0093, Average Regression Loss 0.0040, Average Classification Loss: 0.0053
+.......................2020-01-13 10:04:33,703 - root - INFO - lr rate :0.01
+2020-01-13 10:04:33,703 - root - INFO - lr rate :0.01
+2020-01-13 10:04:40,075 - root - INFO - Epoch: 8, Validation Loss: 0.0072, Validation Regression Loss 0.0033, Validation Classification Loss: 0.0038
+2020-01-13 10:04:40,082 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-8-Loss-0.007181125257404581.pth
+......................................................................................................
+2020-01-13 10:05:54,497 - root - INFO - Epoch: 9, Step: 100, Average Loss: 0.0085, Average Regression Loss 0.0036, Average Classification Loss: 0.0049
+.......................2020-01-13 10:06:07,726 - root - INFO - lr rate :0.01
+2020-01-13 10:06:07,726 - root - INFO - lr rate :0.01
+2020-01-13 10:06:14,006 - root - INFO - Epoch: 9, Validation Loss: 0.0063, Validation Regression Loss 0.0028, Validation Classification Loss: 0.0035
+2020-01-13 10:06:14,013 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-9-Loss-0.00626094703893027.pth
+......................................................................................................
+2020-01-13 10:07:35,960 - root - INFO - Epoch: 10, Step: 100, Average Loss: 0.0080, Average Regression Loss 0.0033, Average Classification Loss: 0.0046
+.......................2020-01-13 10:07:50,290 - root - INFO - lr rate :0.01
+2020-01-13 10:07:50,290 - root - INFO - lr rate :0.01
+2020-01-13 10:07:59,216 - root - INFO - Epoch: 10, Validation Loss: 0.0061, Validation Regression Loss 0.0028, Validation Classification Loss: 0.0033
+2020-01-13 10:07:59,225 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-10-Loss-0.00611227911506449.pth
+......................................................................................................
+2020-01-13 10:09:28,713 - root - INFO - Epoch: 11, Step: 100, Average Loss: 0.0073, Average Regression Loss 0.0030, Average Classification Loss: 0.0043
+.......................2020-01-13 10:09:44,733 - root - INFO - lr rate :0.01
+2020-01-13 10:09:44,733 - root - INFO - lr rate :0.01
+2020-01-13 10:09:51,899 - root - INFO - Epoch: 11, Validation Loss: 11.2035, Validation Regression Loss 1.9695, Validation Classification Loss: 9.2341
+2020-01-13 10:09:51,907 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-11-Loss-11.203525573976579.pth
+......................................................................................................
+2020-01-13 10:11:12,123 - root - INFO - Epoch: 12, Step: 100, Average Loss: 0.0284, Average Regression Loss 0.0074, Average Classification Loss: 0.0210
+.......................2020-01-13 10:11:28,531 - root - INFO - lr rate :0.01
+2020-01-13 10:11:28,531 - root - INFO - lr rate :0.01
+2020-01-13 10:11:37,202 - root - INFO - Epoch: 12, Validation Loss: 0.0072, Validation Regression Loss 0.0034, Validation Classification Loss: 0.0038
+2020-01-13 10:11:37,212 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-12-Loss-0.007197378308422143.pth
+......................................................................................................
+2020-01-13 10:13:00,776 - root - INFO - Epoch: 13, Step: 100, Average Loss: 0.0090, Average Regression Loss 0.0037, Average Classification Loss: 0.0052
+.......................2020-01-13 10:13:17,967 - root - INFO - lr rate :0.01
+2020-01-13 10:13:17,967 - root - INFO - lr rate :0.01
+2020-01-13 10:13:25,779 - root - INFO - Epoch: 13, Validation Loss: 0.0059, Validation Regression Loss 0.0026, Validation Classification Loss: 0.0033
+2020-01-13 10:13:25,788 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-13-Loss-0.005899450621537624.pth
+......................................................................................................
+2020-01-13 10:15:00,407 - root - INFO - Epoch: 14, Step: 100, Average Loss: 0.0073, Average Regression Loss 0.0031, Average Classification Loss: 0.0042
+.......................2020-01-13 10:15:17,461 - root - INFO - lr rate :0.01
+2020-01-13 10:15:17,461 - root - INFO - lr rate :0.01
+2020-01-13 10:15:25,843 - root - INFO - Epoch: 14, Validation Loss: 0.0056, Validation Regression Loss 0.0025, Validation Classification Loss: 0.0031
+2020-01-13 10:15:25,852 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-14-Loss-0.005569184048762245.pth
+......................................................................................................
+2020-01-13 10:17:00,099 - root - INFO - Epoch: 15, Step: 100, Average Loss: 0.0066, Average Regression Loss 0.0027, Average Classification Loss: 0.0039
+.......................2020-01-13 10:17:18,016 - root - INFO - lr rate :0.01
+2020-01-13 10:17:18,016 - root - INFO - lr rate :0.01
+2020-01-13 10:17:26,103 - root - INFO - Epoch: 15, Validation Loss: 0.0051, Validation Regression Loss 0.0022, Validation Classification Loss: 0.0029
+2020-01-13 10:17:26,111 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-15-Loss-0.005089673874599319.pth
+......................................................................................................
+2020-01-13 10:18:56,285 - root - INFO - Epoch: 16, Step: 100, Average Loss: 0.0063, Average Regression Loss 0.0025, Average Classification Loss: 0.0037
+.......................2020-01-13 10:19:13,072 - root - INFO - lr rate :0.01
+2020-01-13 10:19:13,072 - root - INFO - lr rate :0.01
+2020-01-13 10:19:20,292 - root - INFO - Epoch: 16, Validation Loss: 0.0049, Validation Regression Loss 0.0021, Validation Classification Loss: 0.0028
+2020-01-13 10:19:20,300 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-16-Loss-0.004854875766942578.pth
+......................................................................................................
+2020-01-13 10:20:44,686 - root - INFO - Epoch: 17, Step: 100, Average Loss: 0.0057, Average Regression Loss 0.0022, Average Classification Loss: 0.0035
+.......................2020-01-13 10:20:59,761 - root - INFO - lr rate :0.01
+2020-01-13 10:20:59,762 - root - INFO - lr rate :0.01
+2020-01-13 10:21:07,166 - root - INFO - Epoch: 17, Validation Loss: 0.0046, Validation Regression Loss 0.0017, Validation Classification Loss: 0.0028
+2020-01-13 10:21:07,172 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-17-Loss-0.004569861407001172.pth
+......................................................................................................
+2020-01-13 10:22:23,978 - root - INFO - Epoch: 18, Step: 100, Average Loss: 0.0059, Average Regression Loss 0.0022, Average Classification Loss: 0.0037
+.......................2020-01-13 10:22:37,786 - root - INFO - lr rate :0.01
+2020-01-13 10:22:37,787 - root - INFO - lr rate :0.01
+2020-01-13 10:22:44,905 - root - INFO - Epoch: 18, Validation Loss: 0.0050, Validation Regression Loss 0.0023, Validation Classification Loss: 0.0028
+2020-01-13 10:22:44,915 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-18-Loss-0.005036779544166019.pth
+......................................................................................................
+2020-01-13 10:24:02,036 - root - INFO - Epoch: 19, Step: 100, Average Loss: 0.0052, Average Regression Loss 0.0019, Average Classification Loss: 0.0033
+.......................2020-01-13 10:24:15,160 - root - INFO - lr rate :0.01
+2020-01-13 10:24:15,160 - root - INFO - lr rate :0.01
+2020-01-13 10:24:22,832 - root - INFO - Epoch: 19, Validation Loss: 0.0047, Validation Regression Loss 0.0020, Validation Classification Loss: 0.0027
+2020-01-13 10:24:22,873 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-19-Loss-0.004656024727850191.pth
+......................................................................................................
+2020-01-13 10:25:38,355 - root - INFO - Epoch: 20, Step: 100, Average Loss: 0.0052, Average Regression Loss 0.0019, Average Classification Loss: 0.0033
+.......................2020-01-13 10:25:52,489 - root - INFO - lr rate :0.01
+2020-01-13 10:25:52,489 - root - INFO - lr rate :0.01
+2020-01-13 10:25:59,081 - root - INFO - Epoch: 20, Validation Loss: 0.0055, Validation Regression Loss 0.0029, Validation Classification Loss: 0.0026
+2020-01-13 10:25:59,090 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-20-Loss-0.00553301717304895.pth
+......................................................................................................
+2020-01-13 10:27:12,462 - root - INFO - Epoch: 21, Step: 100, Average Loss: 0.0050, Average Regression Loss 0.0018, Average Classification Loss: 0.0032
+.......................2020-01-13 10:27:26,140 - root - INFO - lr rate :0.01
+2020-01-13 10:27:26,140 - root - INFO - lr rate :0.01
+2020-01-13 10:27:32,778 - root - INFO - Epoch: 21, Validation Loss: 0.0041, Validation Regression Loss 0.0016, Validation Classification Loss: 0.0026
+2020-01-13 10:27:32,784 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-21-Loss-0.0041199736522450564.pth
+......................................................................................................
+2020-01-13 10:28:45,167 - root - INFO - Epoch: 22, Step: 100, Average Loss: 0.0048, Average Regression Loss 0.0016, Average Classification Loss: 0.0031
+.......................2020-01-13 10:29:00,875 - root - INFO - lr rate :0.01
+2020-01-13 10:29:00,876 - root - INFO - lr rate :0.01
+2020-01-13 10:29:07,421 - root - INFO - Epoch: 22, Validation Loss: 0.0041, Validation Regression Loss 0.0015, Validation Classification Loss: 0.0026
+2020-01-13 10:29:07,427 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-22-Loss-0.004069569227736323.pth
+......................................................................................................
+2020-01-13 10:30:29,949 - root - INFO - Epoch: 23, Step: 100, Average Loss: 0.0049, Average Regression Loss 0.0017, Average Classification Loss: 0.0032
+.......................2020-01-13 10:30:43,150 - root - INFO - lr rate :0.01
+2020-01-13 10:30:43,150 - root - INFO - lr rate :0.01
+2020-01-13 10:30:51,898 - root - INFO - Epoch: 23, Validation Loss: 0.0042, Validation Regression Loss 0.0015, Validation Classification Loss: 0.0027
+2020-01-13 10:30:51,906 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-23-Loss-0.004160676091428726.pth
+......................................................................................................
+2020-01-13 10:32:08,730 - root - INFO - Epoch: 24, Step: 100, Average Loss: 0.0047, Average Regression Loss 0.0015, Average Classification Loss: 0.0032
+.......................2020-01-13 10:32:22,193 - root - INFO - lr rate :0.01
+2020-01-13 10:32:22,193 - root - INFO - lr rate :0.01
+2020-01-13 10:32:28,556 - root - INFO - Epoch: 24, Validation Loss: 0.0038, Validation Regression Loss 0.0012, Validation Classification Loss: 0.0026
+2020-01-13 10:32:28,563 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-24-Loss-0.0038008384121161315.pth
+......................................................................................................
+2020-01-13 10:33:48,036 - root - INFO - Epoch: 25, Step: 100, Average Loss: 0.0045, Average Regression Loss 0.0015, Average Classification Loss: 0.0031
+.......................2020-01-13 10:34:03,200 - root - INFO - lr rate :0.01
+2020-01-13 10:34:03,200 - root - INFO - lr rate :0.01
+2020-01-13 10:34:10,300 - root - INFO - Epoch: 25, Validation Loss: 0.0038, Validation Regression Loss 0.0013, Validation Classification Loss: 0.0025
+2020-01-13 10:34:10,308 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-25-Loss-0.003785097258045308.pth
+......................................................................................................
+2020-01-13 10:35:24,749 - root - INFO - Epoch: 26, Step: 100, Average Loss: 0.0044, Average Regression Loss 0.0014, Average Classification Loss: 0.0030
+.......................2020-01-13 10:35:38,271 - root - INFO - lr rate :0.01
+2020-01-13 10:35:38,271 - root - INFO - lr rate :0.01
+2020-01-13 10:35:44,711 - root - INFO - Epoch: 26, Validation Loss: 0.0043, Validation Regression Loss 0.0017, Validation Classification Loss: 0.0026
+2020-01-13 10:35:44,718 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-26-Loss-0.004263278938108875.pth
+......................................................................................................
+2020-01-13 10:36:57,623 - root - INFO - Epoch: 27, Step: 100, Average Loss: 0.0047, Average Regression Loss 0.0014, Average Classification Loss: 0.0032
+.......................2020-01-13 10:37:10,932 - root - INFO - lr rate :0.01
+2020-01-13 10:37:10,932 - root - INFO - lr rate :0.01
+2020-01-13 10:37:17,288 - root - INFO - Epoch: 27, Validation Loss: 0.0049, Validation Regression Loss 0.0023, Validation Classification Loss: 0.0026
+2020-01-13 10:37:17,293 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-27-Loss-0.0048704799565096055.pth
+......................................................................................................
+2020-01-13 10:38:29,931 - root - INFO - Epoch: 28, Step: 100, Average Loss: 0.0044, Average Regression Loss 0.0014, Average Classification Loss: 0.0030
+.......................2020-01-13 10:38:43,343 - root - INFO - lr rate :0.01
+2020-01-13 10:38:43,343 - root - INFO - lr rate :0.01
+2020-01-13 10:38:49,721 - root - INFO - Epoch: 28, Validation Loss: 0.0036, Validation Regression Loss 0.0010, Validation Classification Loss: 0.0025
+2020-01-13 10:38:49,727 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-28-Loss-0.00357394332006093.pth
+......................................................................................................
+2020-01-13 10:40:02,070 - root - INFO - Epoch: 29, Step: 100, Average Loss: 0.0043, Average Regression Loss 0.0013, Average Classification Loss: 0.0030
+.......................2020-01-13 10:40:15,648 - root - INFO - lr rate :0.01
+2020-01-13 10:40:15,648 - root - INFO - lr rate :0.01
+2020-01-13 10:40:21,964 - root - INFO - Epoch: 29, Validation Loss: 0.0041, Validation Regression Loss 0.0015, Validation Classification Loss: 0.0026
+2020-01-13 10:40:21,972 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-29-Loss-0.0041416780722718085.pth
+......................................................................................................
+2020-01-13 10:41:37,584 - root - INFO - Epoch: 30, Step: 100, Average Loss: 0.0042, Average Regression Loss 0.0012, Average Classification Loss: 0.0030
+.......................2020-01-13 10:41:51,712 - root - INFO - lr rate :0.01
+2020-01-13 10:41:51,712 - root - INFO - lr rate :0.01
+2020-01-13 10:41:58,522 - root - INFO - Epoch: 30, Validation Loss: 0.0039, Validation Regression Loss 0.0012, Validation Classification Loss: 0.0026
+2020-01-13 10:41:58,528 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-30-Loss-0.0038575862474258867.pth
+......................................................................................................
+2020-01-13 10:43:09,666 - root - INFO - Epoch: 31, Step: 100, Average Loss: 0.0042, Average Regression Loss 0.0012, Average Classification Loss: 0.0030
+.......................2020-01-13 10:43:23,271 - root - INFO - lr rate :0.01
+2020-01-13 10:43:23,272 - root - INFO - lr rate :0.01
+2020-01-13 10:43:30,112 - root - INFO - Epoch: 31, Validation Loss: 0.0046, Validation Regression Loss 0.0020, Validation Classification Loss: 0.0026
+2020-01-13 10:43:30,118 - root - INFO - Saved model ./models/train-time-plate/slim-Epoch-31-Loss-0.0046033590821729555.pth
+.....................................................................................................

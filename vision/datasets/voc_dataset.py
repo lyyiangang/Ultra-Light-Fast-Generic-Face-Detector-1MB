@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 
 import cv2
 import numpy as np
-
+import ipdb
 
 class VOCDataset:
 
@@ -19,15 +19,15 @@ class VOCDataset:
         self.transform = transform
         self.target_transform = target_transform
         if is_test:
-            image_sets_file = self.root / "ImageSets/Main/test.txt"
+            image_sets_file = self.root / "ImageSets/Main/val.txt"
         else:
-            image_sets_file = self.root / "ImageSets/Main/trainval.txt"
+            image_sets_file = self.root / "ImageSets/Main/train.txt"
         self.ids = VOCDataset._read_image_ids(image_sets_file)
+        # self.ids = self.ids[:100]
         self.keep_difficult = keep_difficult
 
         # if the labels file exists, read in the class names
         label_file_name = self.root / "labels.txt"
-
         if os.path.isfile(label_file_name):
             class_string = ""
             with open(label_file_name, 'r') as infile:
@@ -49,6 +49,7 @@ class VOCDataset:
                                 'face')
 
         self.class_dict = {class_name: i for i, class_name in enumerate(self.class_names)}
+        logging.info(f'class_name dict:{self.class_dict}')
 
     def __getitem__(self, index):
         image_id = self.ids[index]
@@ -117,3 +118,11 @@ class VOCDataset:
         image = cv2.imread(str(image_file))
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         return image
+
+if __name__ == '__main__':
+    dataset = VOCDataset(root = "../../Dataset/VOC", transform= None, target_transform= None)
+    for ii in range(len(dataset.ids)):
+        img, boxes, labels = dataset[ii]
+        print(f'boxes:{boxes}, labels:{labels}')
+        cv2.imshow('img', img)
+        cv2.waitKey(0)

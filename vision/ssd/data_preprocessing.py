@@ -14,7 +14,8 @@ class TrainAugmentation:
             ConvertFromInts(),
             PhotometricDistort(),
             RandomSampleCrop_v2(),
-            RandomMirror(),
+            # lyy. disable mirror
+            # RandomMirror(),
             ToPercentCoords(),
             Resize(self.size),
             SubtractMeans(self.mean),

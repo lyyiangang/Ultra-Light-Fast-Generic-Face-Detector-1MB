@@ -22,6 +22,7 @@ parser.add_argument('--candidate_size', default=1500, type=int,
                     help='nms candidate size')
 parser.add_argument('--path', default="imgs", type=str,
                     help='imgs dir')
+parser.add_argument('--model', default="", type=str,help='resumed model')
 parser.add_argument('--test_device', default="cuda:0", type=str,
                     help='cuda:0 or cpu')
 args = parser.parse_args()
@@ -31,12 +32,13 @@ from vision.ssd.mb_tiny_fd import create_mb_tiny_fd, create_mb_tiny_fd_predictor
 from vision.ssd.mb_tiny_RFB_fd import create_Mb_Tiny_RFB_fd, create_Mb_Tiny_RFB_fd_predictor
 
 result_path = "./detect_imgs_results"
-label_path = "./models/voc-model-labels.txt"
+label_path = "./models/train-time-plate/voc-model-labels.txt"
 test_device = args.test_device
 
 class_names = [name.strip() for name in open(label_path).readlines()]
+label_dict = {idx : name for idx, name in enumerate(class_names)}
 if args.net_type == 'slim':
-    model_path = "models/pretrained/version-slim-320.pth"
+    # model_path = "./models/train-time-plate/slim-Epoch-1-Loss-1.278238550309212.pth"
     # model_path = "models/pretrained/version-slim-640.pth"
     net = create_mb_tiny_fd(len(class_names), is_test=True, device=test_device)
     predictor = create_mb_tiny_fd_predictor(net, candidate_size=args.candidate_size, device=test_device)
@@ -48,6 +50,7 @@ elif args.net_type == 'RFB':
 else:
     print("The net type is wrong!")
     sys.exit(1)
+model_path = args.model
 net.load(model_path)
 
 if not os.path.exists(result_path):
@@ -63,10 +66,10 @@ for file_path in listdir:
     for i in range(boxes.size(0)):
         box = boxes[i, :]
         cv2.rectangle(orig_image, (box[0], box[1]), (box[2], box[3]), (0, 0, 255), 2)
-        # label = f"""{voc_dataset.class_names[labels[i]]}: {probs[i]:.2f}"""
-        label = f"{probs[i]:.2f}"
-        # cv2.putText(orig_image, label, (box[0], box[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+        label = f"""{label_dict[labels[i].item()]}:{probs[i]:.2f}"""
+        # label = f"{probs[i]:.2f}"
+        cv2.putText(orig_image, label, (box[0], box[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
     cv2.putText(orig_image, str(boxes.size(0)), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
     cv2.imwrite(os.path.join(result_path, file_path), orig_image)
-    print(f"Found {len(probs)} faces. The output image is {result_path}")
+    print(f"Found {len(probs)} objects. The output image is {result_path}")
 print(sum)

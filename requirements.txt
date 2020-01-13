@@ -1,6 +1,6 @@
 numpy
-torch
-opencv_python
+# torch
+# opencv_python
 torchvision
 typing
 torchstat

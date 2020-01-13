@@ -1,7 +1,7 @@
 import datetime
-
+import os
 import torch
-
+import cv2
 
 def str2bool(s):
     return s.lower() in ('true', '1')
@@ -44,3 +44,25 @@ def freeze_net_layers(net):
 def store_labels(path, labels):
     with open(path, "w") as f:
         f.write("\n".join(labels))
+
+
+def do_extract_frames():
+    video_name = '../../Dataset/score_plate/00000.MTS'
+    # video_name = '../../Dataset/score_plate/0101_1.mov'
+    out_folder = '../../Dataset/score_plate/imgs'
+    os.makedirs(out_folder, exist_ok= True)
+    cap = cv2.VideoCapture(video_name)
+    idx = 0
+    while True:
+        ret, img = cap.read()
+        if not ret:
+            print('cant read frames')
+            break
+        cv2.imwrite(os.path.join(out_folder, '{}_{}.jpg'.format(os.path.basename(video_name), str(idx))), img)
+        idx += 1
+        if idx % 10 == 0:
+            print('.', flush= True, end= '')
+    print(f'video {video_name} frames are extraced to {out_folder}')
+
+if __name__ =='__main__':
+    do_extract_frames()

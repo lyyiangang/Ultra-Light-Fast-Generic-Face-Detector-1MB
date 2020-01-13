@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+import ipdb
 from ..utils import box_utils
 
 
@@ -44,4 +44,6 @@ class MultiboxLoss(nn.Module):
         smooth_l1_loss = F.smooth_l1_loss(predicted_locations, gt_locations, reduction='sum')  # smooth_l1_loss
         # smooth_l1_loss = F.mse_loss(predicted_locations, gt_locations, reduction='sum')  #l2 loss
         num_pos = gt_locations.size(0)
+        if smooth_l1_loss.item() == float('nan') or classification_loss.item() == float('nan'):
+            ipdb.set_trace()
         return smooth_l1_loss / num_pos, classification_loss / num_pos
